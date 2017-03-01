@@ -12,7 +12,8 @@
         <property name="show_sql">true</property>
         <property name="connection.pool_size">1</property>
 
-       <mapping class="ch.helsana.web.model.pojo.Emp"></mapping>
+        <!-- Test -->
+        <mapping class="ch.helsana.web.model.pojo.Emp"></mapping>
 
     </session-factory>
 </hibernate-configuration>
