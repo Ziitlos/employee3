@@ -1,6 +1,4 @@
-<%@ page import="java.util.ArrayList" %>
 <%@ page import="java.util.List" %>
-<%@ page import="ch.helsana.web.test.Dummy" %>
 <%@ page import="ch.helsana.web.dao.EmpDao" %>
 <%@ page import="ch.helsana.web.model.pojo.Emp" %>
 
@@ -17,46 +15,7 @@
 
 <body>
 
-<%
-    List<Dummy> dummyList = new ArrayList<Dummy>();
-    Dummy dummy1 = new Dummy();
-    dummy1.setZahl(1);
-    dummy1.setFarbe("Rot");
-    dummyList.add(dummy1);
-
-    Dummy dummy2 = new Dummy();
-    dummy2.setZahl(2);
-    dummy2.setFarbe("Blau");
-    dummyList.add(dummy2);
-
-    Dummy dummy3 = new Dummy();
-    dummy3.setZahl(3);
-    dummy3.setFarbe("Grün");
-    dummyList.add(dummy3);
-
-    request.setAttribute("dummyList", dummyList);
-%>
-
-
 <h1>Employee3</h1>
-
-<table border="1">
-    <tr>
-        <td>Zahl</td>
-        <td>Farbe</td>
-    </tr>
-
-    <c:forEach items="${dummyList}" var="dum">
-        <tr>
-            <td><c:out value="${dum.zahl}" /></td>
-            <td><c:out value="${dum.farbe}" /></td>
-        </tr>
-    </c:forEach>
-</table>
-
-<br>
-<hr>
-<br>
 
 <%
     EmpDao empDao = new EmpDao();
