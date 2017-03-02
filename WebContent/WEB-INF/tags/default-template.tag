@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ attribute name="header" fragment="true" %>
 <%@ attribute name="content" fragment="true" %>
 
@@ -15,6 +16,8 @@
 </head>
 
 <body>
+<a href="<c:url value="/index.jsp" />">Home</a><br>
+<br>
 <jsp:invoke fragment="content" />
 </body>
 </html>
