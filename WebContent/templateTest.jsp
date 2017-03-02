@@ -9,17 +9,30 @@
 
     <jsp:attribute name="content">
 
+		<jsp:useBean id="zahlChecker" class="ch.helsana.web.helper.ZahlChecker" />
+
 		<!-- Employee Nummer aus URL Parameter lesen -->
 		<c:set var="empNummer" value="${param.empno}" />
+
+		<!-- Check ob URL Param empNummer eine Zahl ist, wenn nicht wird als default Wert 0 gesetzt -->
+		<c:if test="${!zahlChecker.isEsEineZahl(empNummer)}">
+			<c:set var="empNummer" value="0" />
+		</c:if>
 
 		<!-- Intance erstellen -->
 		<jsp:useBean id="dao" class="ch.helsana.web.dao.EmpDao" />
 
-		<!-- Ausgeben -->
-		Nummer: <c:out value="${dao.getEmpbyEmpNo(param.empno).empno}" /><br>
-		Name: <c:out value="${dao.getEmpbyEmpNo(param.empno).ename}" /><br>
-		Salary: <c:out value="${dao.getEmpbyEmpNo(param.empno).sal}" /><br>
-		Geb. Dat.: <fmt:formatDate value="${dao.getEmpbyEmpNo(param.empno).dob}" pattern="dd.MM.yyyy" /><br>
+		<c:if test="${empty dao.getEmpbyEmpNo(empNummer)}">
+			Kein Employee gefunden.
+		</c:if>
+
+		<c:if test="${not empty dao.getEmpbyEmpNo(empNummer)}">
+			<!-- Ausgeben -->
+			Nummer: <c:out value="${dao.getEmpbyEmpNo(empNummer).empno}" /><br>
+			Name: <c:out value="${dao.getEmpbyEmpNo(empNummer).ename}" /><br>
+			Salary: <c:out value="${dao.getEmpbyEmpNo(empNummer).sal}" /><br>
+			Geb. Dat.: <fmt:formatDate value="${dao.getEmpbyEmpNo(empNummer).dob}" pattern="dd.MM.yyyy" /><br>
+		</c:if>
 
 
 	</jsp:attribute>
