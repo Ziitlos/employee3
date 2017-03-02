@@ -134,10 +134,10 @@ public class EmpDao {
     public Emp getEmpbyEmpNo(int empno) {
         Session session = HibernateUtil.getSessionFactory().openSession();
         session.beginTransaction();
-        emp = (Emp) session.load(Emp.class, empno);
-        System.out.println("*EmpDao.java* Employee Object als String: " + emp.toString());
+        emp = (Emp) session.get(Emp.class, empno);
         session.getTransaction().commit();
         session.close();
+        System.out.println("*EmpDao.java* Employee Object als String: " + emp);
         return emp;
     }
 
