@@ -30,10 +30,24 @@
 
 		<c:if test="${not empty dao.getEmpbyEmpNo(empNummer)}">
 			<!-- Ausgeben -->
-			Nummer: <c:out value="${dao.getEmpbyEmpNo(empNummer).empno}" /><br>
-			Name: <c:out value="${dao.getEmpbyEmpNo(empNummer).ename}" /><br>
-			Salary: <c:out value="${dao.getEmpbyEmpNo(empNummer).sal}" /><br>
-			Geb. Dat.: <fmt:formatDate value="${dao.getEmpbyEmpNo(empNummer).dob}" pattern="dd.MM.yyyy" /><br>
+			<table border="1">
+				<tr>
+					<td>Nummer:</td>
+					<td><c:out value="${dao.getEmpbyEmpNo(empNummer).empno}" /></td>
+				</tr>
+				<tr>
+					<td>Name:</td>
+					<td><c:out value="${dao.getEmpbyEmpNo(empNummer).ename}" /></td>
+				</tr>
+				<tr>
+					<td>Salary:</td>
+					<td><c:out value="${dao.getEmpbyEmpNo(empNummer).sal}" /></td>
+				</tr>
+				<tr>
+					<td>Geb. Dat.:</td>
+					<td><fmt:formatDate value="${dao.getEmpbyEmpNo(empNummer).dob}" pattern="dd.MM.yyyy" /></td>
+				</tr>
+			</table>
 		</c:if>
 
 	</jsp:attribute>
