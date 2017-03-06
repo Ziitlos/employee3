@@ -11,6 +11,7 @@
     <jsp:attribute name="content">
 
 		<h1>Delete Employee</h1>
+		<c:import url="inc/nav.jsp"/>
 
 
 		<jsp:useBean id="zahlChecker" class="ch.helsana.web.helper.ZahlChecker" />

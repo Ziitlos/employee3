@@ -10,6 +10,10 @@
 
     <jsp:attribute name="content">
 
+        <h1>&Uuml;bersicht Employee</h1>
+
+        <c:import url="inc/nav.jsp"/>
+
         <!-- START neuen Employee erfassen -->
         <%-- Es werden nur POST Request für einen Insert in die DB bearbeitet --%>
         <c:if test="${pageContext.request.method == 'POST'}">
@@ -29,14 +33,14 @@
                     <fmt:parseDate pattern="dd.MM.yyyy" value="${param.dob}" var="newDob"/>
                     <jsp:setProperty property="dob" name="newEmp" value="${newDob}"/>
                     <c:set var="setNewEmp" value="${newEmpDao.add(newEmp)}"/>
-                    <span style="color: #00bb00"><b>Employee <c:out value="${param.ename}"/> eingef&uuml;gt.</b></span>
+                    <span style="color: #00bb00"><b>Employee <c:out value="${param.ename}"/> eingef&uuml;gt.</b><br><br></span>
                 </c:otherwise>
             </c:choose>
         </c:if>
         <!-- END neuen Employee erfassen -->
 
 
-        <h1>&Uuml;bersicht Employee</h1>
+
 
         <a href="<c:url value="newEmp.jsp" />">Employee erfassen</a><br>
         <br>

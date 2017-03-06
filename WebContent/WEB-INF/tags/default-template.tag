@@ -22,8 +22,6 @@
 </head>
 
 <body>
-<a href="<c:url value="/index.jsp" />">Home</a><br>
-<br>
 <jsp:invoke fragment="content" />
 </body>
 </html>

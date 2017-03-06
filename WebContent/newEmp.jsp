@@ -11,6 +11,8 @@
     <jsp:attribute name="content">
         <h1>Employee erfassen</h1>
 
+        <c:import url="inc/nav.jsp"/>
+
 
         <form name="inform" action="index.jsp" method="post">
             <table border="1">
