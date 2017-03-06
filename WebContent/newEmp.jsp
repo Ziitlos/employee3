@@ -32,6 +32,14 @@
                 </tr>
             </table>
         </form>
+        <script >
+            var example = flatpickr('#dob', {
+              enableTime: false,
+              dateFormat: "d.m.Y",
+              locale: "de",
+              weekNumbers: true
+            });
+        </script>
 
     </jsp:attribute>
 

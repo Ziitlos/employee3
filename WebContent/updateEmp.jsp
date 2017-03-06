@@ -38,15 +38,15 @@
 					</tr>
 					<tr>
 						<td>Name:</td>
-						<td><input type="text" name="ename" value="<c:out value="${dao.getEmpbyEmpNo(empNummer).ename}" />"></td>
+						<td><input type="text" name="ename" id="ename" value="<c:out value="${dao.getEmpbyEmpNo(empNummer).ename}" />"></td>
 					</tr>
 					<tr>
 						<td>Salary:</td>
-						<td><input type="text" name="sal" value="<c:out value="${dao.getEmpbyEmpNo(empNummer).sal}" />"></td>
+						<td><input type="text" name="sal" id="sal" value="<c:out value="${dao.getEmpbyEmpNo(empNummer).sal}" />"></td>
 					</tr>
 					<tr>
 						<td>Geb. Dat.:</td>
-						<td><input type="text" name="dob" value="<fmt:formatDate value="${dao.getEmpbyEmpNo(empNummer).dob}" pattern="dd.MM.yyyy" />"></td>
+						<td><input type="text" name="dob" id="dob" value="<fmt:formatDate value="${dao.getEmpbyEmpNo(empNummer).dob}" pattern="dd.MM.yyyy" />"></td>
 					</tr>
 					<tr>
 						<td>&nbsp;</td>
@@ -54,6 +54,14 @@
 					</tr>
 				</table>
 			</form>
+			<script >
+              var example = flatpickr('#dob', {
+                enableTime: false,
+                dateFormat: "d.m.Y",
+                locale: "de",
+                weekNumbers: true
+              });
+			</script>
 		</c:if>
 
 	</jsp:attribute>
