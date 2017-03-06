@@ -19,8 +19,12 @@ public class EmpDao {
     private List< Emp > DaoAllEmp;
     private List < Emp > DaoSearchEmpList;
 
-    //Session session;
 
+    /**
+     * Gibt alle Einträge aus der Tabelle Emp zurück
+     *
+     * @return Alle Emp als Liste
+     */
     public List < Emp > getAllEmployee() {
         Session session = HibernateUtil.getSessionFactory().openSession();
 
@@ -33,13 +37,17 @@ public class EmpDao {
             session.getTransaction().commit();
         } catch (Exception e) {
             e.printStackTrace();
-            // ses.getTransaction().rollback();
         }
         session.close();
         return DaoAllEmp;
     }
 
 
+    /**
+     * Die Sortierreihenfolge ist als Übergabeparameter an zu geben. ASC oder DESC
+     * @param orderByDirection
+     * @return Alle Emp als Liste
+     */
     public List < Emp > getAllEmployeeOrderBy(String orderByDirection) {
         Session session = HibernateUtil.getSessionFactory().openSession();
         List < Emp > daoSearchList = new ArrayList< >();
@@ -61,6 +69,11 @@ public class EmpDao {
     }
 
 
+    /**
+     * Sucht in der Tabelle Emp nach der übergebenen Employee Nummer
+     * @param RecordNo
+     * @return
+     */
     public List < Emp > SearchByRecordNo(String RecordNo) {
         Session session = HibernateUtil.getSessionFactory().openSession();
         List < Emp > daoSearchList = new ArrayList< >();
@@ -82,6 +95,10 @@ public class EmpDao {
         return daoSearchList;
     }
 
+    /**
+     * Fügt einen neuen Employee in die Tabelle Emp ein
+     * @param emp
+     */
     public void add(Emp emp) {
         Transaction trans = null;
         Session session = HibernateUtil.getSessionFactory().openSession();
@@ -106,6 +123,10 @@ public class EmpDao {
         }
     }
 
+    /**
+     * Löscht den Employee in der Tabelle Emp mit dem übergebenen Employee Objekt
+     * @param emp
+     */
     public void delete(Emp emp) {
         Transaction trans = null;
         Session session = HibernateUtil.getSessionFactory().openSession();
@@ -130,6 +151,10 @@ public class EmpDao {
         }
     }
 
+    /**
+     * Löscht den Employee in der Tabelle Emp mit der übergebenen Employee Nummer
+     * @param empid
+     */
     public void delete(int empid) {
         Transaction trans = null;
         Session session = HibernateUtil.getSessionFactory().openSession();
@@ -154,6 +179,10 @@ public class EmpDao {
     }
 
 
+    /**
+     * Updated den übergebenen Employee in der Tabelle Emp
+     * @param emp
+     */
     public void update(Emp emp) {
         Transaction trans = null;
         Session session = HibernateUtil.getSessionFactory().openSession();
@@ -177,6 +206,11 @@ public class EmpDao {
         }
     }
 
+    /**
+     * Sucht den Employee in der Tabelle Emp mit der übergebenen Employee Nummer
+     * @param empno
+     * @return
+     */
     public Emp getEmpbyEmpNo(int empno) {
         Session session = HibernateUtil.getSessionFactory().openSession();
         session.beginTransaction();
