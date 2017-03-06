@@ -1,3 +1,4 @@
+<%@ page contentType="text/html; charset=UTF-8" %>
 <%@ taglib tagdir="/WEB-INF/tags" prefix="defTempl"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
@@ -54,7 +55,7 @@
 					</tr>
 					<tr>
 						<th>&nbsp;</th>
-						<td>Diesen Employee <input type="submit" name="delete" value="l&ouml;schen"></td>
+						<td>Diesen Employee <input type="submit" name="delete" value="löschen"></td>
 					</tr>
 				</table>
 			</form>
