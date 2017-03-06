@@ -9,9 +9,40 @@
 	</jsp:attribute>
 
     <jsp:attribute name="content">
+
+        <!-- START neuen Employee erfassen -->
+        <%-- Es werden nur POST Request für einen Insert in die DB bearbeitet --%>
+        <c:if test="${pageContext.request.method == 'POST'}">
+            <c:if test="${(param.ename == '') || (param.sal == '') || (param.dob == '')}"></c:if>
+
+            <c:choose>
+                <%-- Employee wird nur eingefügt, wenn alle Felder ausgefüllt sind. --%>
+                <c:when test="${(param.ename == '') || (param.sal == '') || (param.dob == '')}">
+                    <span style="color: #ff0000"><b>Employee nicht eingef&uuml;gt. Mindestens ein Eingabefeld ist leer.</b></span><br />
+                </c:when>
+                <c:otherwise>
+                    <jsp:useBean id="newEmp" class="ch.helsana.web.model.pojo.Emp" />
+                    <jsp:useBean id="newEmpDao" class="ch.helsana.web.dao.EmpDao"/>
+
+                    <jsp:setProperty property="ename" name="newEmp"/>
+                    <jsp:setProperty property="sal" name="newEmp"/>
+                    <fmt:parseDate pattern="dd.MM.yyyy" value="${param.dob}" var="newDob"/>
+                    <jsp:setProperty property="dob" name="newEmp" value="${newDob}"/>
+                    <c:set var="setNewEmp" value="${newEmpDao.add(newEmp)}"/>
+                    <span style="color: #00bb00"><b>Employee <c:out value="${param.ename}"/> eingef&uuml;gt.</b></span>
+                </c:otherwise>
+            </c:choose>
+        </c:if>
+        <!-- END neuen Employee erfassen -->
+
+
         <h1>&Uuml;bersicht Employee</h1>
 
+        <a href="<c:url value="newEmp.jsp" />">Employee erfassen</a><br>
+        <br>
+
         <jsp:useBean id="empDao" class="ch.helsana.web.dao.EmpDao" />
+
         <c:set var="empList" value="${empDao.allEmployee}" />
 
         <table border="1">
