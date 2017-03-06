@@ -32,24 +32,31 @@
 
 		<c:if test="${not empty dao.getEmpbyEmpNo(empNummer)}">
 			<!-- Ausgeben -->
-			<table border="1">
-				<tr>
-					<td>Nummer:</td>
-					<td><c:out value="${dao.getEmpbyEmpNo(empNummer).empno}" /></td>
-				</tr>
-				<tr>
-					<td>Name:</td>
-					<td><c:out value="${dao.getEmpbyEmpNo(empNummer).ename}" /></td>
-				</tr>
-				<tr>
-					<td>Salary:</td>
-					<td><c:out value="${dao.getEmpbyEmpNo(empNummer).sal}" /></td>
-				</tr>
-				<tr>
-					<td>Geb. Dat.:</td>
-					<td><fmt:formatDate value="${dao.getEmpbyEmpNo(empNummer).dob}" pattern="dd.MM.yyyy" /></td>
-				</tr>
-			</table>
+			<form name="inform" action="doDeletEmp.jsp" method="post">
+				<input type="hidden" name="empnoToDelete" value="${dao.getEmpbyEmpNo(empNummer).empno}">
+				<table border="1">
+					<tr>
+						<td>Nummer:</td>
+						<td><c:out value="${dao.getEmpbyEmpNo(empNummer).empno}" /></td>
+					</tr>
+					<tr>
+						<td>Name:</td>
+						<td><c:out value="${dao.getEmpbyEmpNo(empNummer).ename}" /></td>
+					</tr>
+					<tr>
+						<td>Salary:</td>
+						<td><c:out value="${dao.getEmpbyEmpNo(empNummer).sal}" /></td>
+					</tr>
+					<tr>
+						<td>Geb. Dat.:</td>
+						<td><fmt:formatDate value="${dao.getEmpbyEmpNo(empNummer).dob}" pattern="dd.MM.yyyy" /></td>
+					</tr>
+					<tr>
+						<td>&nbsp;</td>
+						<td>Diesen Employee <input type="submit" name="delete" value="l&ouml;schen"></td>
+					</tr>
+				</table>
+			</form>
 		</c:if>
 
 	</jsp:attribute>

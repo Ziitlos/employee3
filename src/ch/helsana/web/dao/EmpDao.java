@@ -108,6 +108,30 @@ public class EmpDao {
         }
     }
 
+    public void delete(int empid) {
+        Transaction trans = null;
+        Session session = HibernateUtil.getSessionFactory().openSession();
+
+        Emp empToDelete = new Emp();
+        empToDelete.setEmpno(empid);
+
+        try {
+            // begin a transaction
+            session.beginTransaction();
+            session.delete(empToDelete);
+            session.getTransaction().commit();
+        } catch (RuntimeException e) {
+            if (trans != null) {
+                trans.rollback();
+            }
+            e.printStackTrace();
+        } finally {
+            session.flush();
+            session.close();
+        }
+    }
+
+
     public void update(Emp emp) {
         Transaction trans = null;
         Session session = HibernateUtil.getSessionFactory().openSession();
