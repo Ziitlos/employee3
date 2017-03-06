@@ -9,6 +9,8 @@
 
     <jsp:attribute name="content">
 
+		<c:import url="inc/nav.jsp"/>
+
 		<jsp:useBean id="zahlChecker" class="ch.helsana.web.helper.ZahlChecker" />
 
 		<!-- Employee Nummer aus URL Parameter lesen -->
