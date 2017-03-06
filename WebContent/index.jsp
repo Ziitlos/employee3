@@ -41,6 +41,39 @@
         <a href="<c:url value="newEmp.jsp" />">Employee erfassen</a><br>
         <br>
 
+
+
+        <%-- START Alle Employee suchen mit der Angabe OderBy --%>
+        <jsp:useBean id="empDaoOrder" class="ch.helsana.web.dao.EmpDao" />
+
+        <c:set var="empListOrderBy" value="${empDaoOrder.getAllEmployeeOrderBy('asc')}" />
+
+        <table border="1">
+            <tr>
+                <td>ID</td>
+                <td>Name</td>
+                <td>Salary</td>
+                <td>GebDat</td>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+            </tr>
+
+            <c:forEach items="${empListOrderBy}" var="employeeOrderBy">
+                <tr>
+                    <td><c:out value="${employeeOrderBy.empno}" /></td>
+                    <td><c:out value="${employeeOrderBy.ename}" /></td>
+                    <td><c:out value="${employeeOrderBy.sal}"/></td>
+                    <td><fmt:formatDate value="${employeeOrderBy.dob}" pattern="dd.MM.yyyy" /></td>
+                    <td><a href="<c:url value="updateEmp.jsp?empno=${employeeOrderBy.empno}" />">Edit</a></td>
+                    <td><a href="<c:url value="deleteEmp.jsp?empno=${employeeOrderBy.empno}" />">Delete</a></td>
+                </tr>
+            </c:forEach>
+        </table>
+
+        <%-- ENDE Alle Employee suchen mit der Angabe OderBy --%>
+
+
+        <%--
         <jsp:useBean id="empDao" class="ch.helsana.web.dao.EmpDao" />
 
         <c:set var="empList" value="${empDao.allEmployee}" />
@@ -66,6 +99,10 @@
                 </tr>
             </c:forEach>
         </table>
+        --%>
+
+
+
 
     </jsp:attribute>
 

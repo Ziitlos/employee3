@@ -39,6 +39,28 @@ public class EmpDao {
         return DaoAllEmp;
     }
 
+
+    public List < Emp > getAllEmployeeOrderBy(String orderByDirection) {
+        Session session = HibernateUtil.getSessionFactory().openSession();
+        List < Emp > daoSearchList = new ArrayList< >();
+
+        try {
+            session.beginTransaction();
+            Query qu = session.createQuery("From Emp E order by empno " +  orderByDirection); //order by
+            daoSearchList = qu.list();
+            int count = daoSearchList.size();
+            session.getTransaction().commit();
+        } catch (Exception e) {
+            e.printStackTrace();
+            session.getTransaction().rollback();
+        } finally {
+            session.close();
+        }
+
+        return daoSearchList;
+    }
+
+
     public List < Emp > SearchByRecordNo(String RecordNo) {
         Session session = HibernateUtil.getSessionFactory().openSession();
         List < Emp > daoSearchList = new ArrayList< >();
