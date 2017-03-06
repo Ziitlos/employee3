@@ -13,6 +13,7 @@
     <!-- Place Common CSS here -->
     <!-- <link href="css/default.css" rel="stylesheet" type="text/css" /> -->
 
+    <link rel="stylesheet" href="./css/default.css" />
     <link rel="stylesheet" href="./css/flatpickr.min.css" />
     <script src="./js/flatpickr.min.js"></script>
     <script src="./js/l10n/de.js"></script>

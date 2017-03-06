@@ -33,23 +33,23 @@
 			<form name="inform" action="doUpdateEmp.jsp" method="post">
 				<table border="1">
 					<tr>
-						<td>Nummer:</td>
+						<th>Nummer:</th>
 						<td><input type="text" name="empno" value="<c:out value="${dao.getEmpbyEmpNo(empNummer).empno}" />"></td>
 					</tr>
 					<tr>
-						<td>Name:</td>
+						<th>Name:</th>
 						<td><input type="text" name="ename" id="ename" value="<c:out value="${dao.getEmpbyEmpNo(empNummer).ename}" />"></td>
 					</tr>
 					<tr>
-						<td>Salary:</td>
+						<th>Salary:</th>
 						<td><input type="text" name="sal" id="sal" value="<c:out value="${dao.getEmpbyEmpNo(empNummer).sal}" />"></td>
 					</tr>
 					<tr>
-						<td>Geb. Dat.:</td>
+						<th>Geb. Dat.:</th>
 						<td><input type="text" name="dob" id="dob" value="<fmt:formatDate value="${dao.getEmpbyEmpNo(empNummer).dob}" pattern="dd.MM.yyyy" />"></td>
 					</tr>
 					<tr>
-						<td>&nbsp;</td>
+						<th>&nbsp;</th>
 						<td>Diesen Employee <input type="submit" name="delete" value="&auml;ndern"></td>
 					</tr>
 				</table>

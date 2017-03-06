@@ -36,23 +36,23 @@
 				<input type="hidden" name="empnoToDelete" value="${dao.getEmpbyEmpNo(empNummer).empno}">
 				<table border="1">
 					<tr>
-						<td>Nummer:</td>
+						<th>Nummer:</th>
 						<td><c:out value="${dao.getEmpbyEmpNo(empNummer).empno}" /></td>
 					</tr>
 					<tr>
-						<td>Name:</td>
+						<th>Name:</th>
 						<td><c:out value="${dao.getEmpbyEmpNo(empNummer).ename}" /></td>
 					</tr>
 					<tr>
-						<td>Salary:</td>
+						<th>Salary:</th>
 						<td><c:out value="${dao.getEmpbyEmpNo(empNummer).sal}" /></td>
 					</tr>
 					<tr>
-						<td>Geb. Dat.:</td>
+						<th>Geb. Dat.:</th>
 						<td><fmt:formatDate value="${dao.getEmpbyEmpNo(empNummer).dob}" pattern="dd.MM.yyyy" /></td>
 					</tr>
 					<tr>
-						<td>&nbsp;</td>
+						<th>&nbsp;</th>
 						<td>Diesen Employee <input type="submit" name="delete" value="l&ouml;schen"></td>
 					</tr>
 				</table>

@@ -15,19 +15,19 @@
         <form name="inform" action="index.jsp" method="post">
             <table border="1">
                 <tr>
-                    <td>Name</td>
+                    <th>Name</th>
                     <td><input type="text" name="ename" id="ename" value=""></td>
                 </tr>
                 <tr>
-                    <td>Salary</td>
+                    <th>Salary</th>
                     <td><input type="text" name="sal" id="sal" value=""></td>
                 </tr>
                 <tr>
-                    <td>GebDat</td>
+                    <th>GebDat</th>
                     <td><input type="text" name="dob" id="dob" value=""></td>
                 </tr>
                 <tr>
-                    <td>&nbsp;</td>
+                    <th>&nbsp;</th>
                     <td><input type="submit" name="absenden" value="absenden"></td>
                 </tr>
             </table>

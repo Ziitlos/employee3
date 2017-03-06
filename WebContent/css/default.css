@@ -1,0 +1,23 @@
+body{
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 14px;
+    color: #444;
+}
+
+table {
+    margin: 10px;
+}
+
+table, td, th {
+    border-collapse: collapse;
+}
+
+th, td {
+    padding: 6px;
+    border: solid 1px;
+}
+
+th{
+    background-color: #bbbbbb;
+    text-align: left;
+}

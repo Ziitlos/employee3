@@ -48,14 +48,14 @@
 
         <c:set var="empListOrderBy" value="${empDaoOrder.getAllEmployeeOrderBy('asc')}" />
 
-        <table border="1">
+        <table>
             <tr>
-                <td>ID</td>
-                <td>Name</td>
-                <td>Salary</td>
-                <td>GebDat</td>
-                <td>&nbsp;</td>
-                <td>&nbsp;</td>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Salary</th>
+                <th>GebDat</th>
+                <th>&nbsp;</th>
+                <th>&nbsp;</th>
             </tr>
 
             <c:forEach items="${empListOrderBy}" var="employeeOrderBy">
